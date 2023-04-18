@@ -1,0 +1,17 @@
+{
+    "name": "serega170584/clean_architecture",
+    "description": "clean arch",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Serega170584\\CleanArchitecture\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "serega170584"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
