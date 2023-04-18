@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Source;
+namespace Serega170584\CleanArchitecture\Source;
 
-use Source\FieldAdapter\SerializerInterface;
+use Serega170584\CleanArchitecture\Source\FieldAdapter\SerializerInterface;
 
 interface SourceInterface
 {

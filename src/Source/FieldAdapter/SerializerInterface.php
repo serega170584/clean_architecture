@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Source\FieldAdapter;
+namespace Serega170584\CleanArchitecture\Source\FieldAdapter;
 
 interface SerializerInterface
 {

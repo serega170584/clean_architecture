@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Domain\Validator;
+namespace Serega170584\CleanArchitecture\Domain\Validator;
 
-use Contract\Exception\EmptyTransferAccountException;
-use Contract\Model\Account;
-use Contract\Type\TransactionType;
-use Contract\Validator\TransactionValidatorInterface;
+use Serega170584\CleanArchitecture\Contract\Exception\EmptyTransferAccountException;
+use Serega170584\CleanArchitecture\Contract\Model\Account;
+use Serega170584\CleanArchitecture\Contract\Type\TransactionType;
+use Serega170584\CleanArchitecture\Contract\Validator\TransactionValidatorInterface;
 
 class TransactionValidator implements TransactionValidatorInterface
 {

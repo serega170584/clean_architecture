@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Database\Manager;
+namespace Serega170584\CleanArchitecture\Database\Manager;
 
-use Source\SourceInterface;
+use Serega170584\CleanArchitecture\Source\SourceInterface;
 
 class UnitOfWork implements UnitOfWorkInterface
 {

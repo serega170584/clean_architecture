@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Contract\Model;
+namespace Serega170584\CleanArchitecture\Contract\Model;
 
 use Contract\Type\TransactionType;
 use DateTimeImmutable;

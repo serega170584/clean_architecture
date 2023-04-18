@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace Contract\UseCase;
+namespace Serega170584\CleanArchitecture\Contract\UseCase;
 
-use Contract\Exception\NegativeBalanceException;
-use Contract\Model\Account;
-use Contract\Model\Transaction;
-use Contract\Type\TransactionType;
+use Serega170584\CleanArchitecture\Contract\Exception\NegativeBalanceException;
+use Serega170584\CleanArchitecture\Contract\Model\Account;
+use Serega170584\CleanArchitecture\Contract\Model\Transaction;
+use Serega170584\CleanArchitecture\Contract\Type\TransactionType;
 
 interface TransactionInterface
 {

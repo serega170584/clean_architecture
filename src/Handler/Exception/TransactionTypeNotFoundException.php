@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Contract\Exception;
+namespace Serega170584\CleanArchitecture\Contract\Exception;
 
 use Throwable;
 

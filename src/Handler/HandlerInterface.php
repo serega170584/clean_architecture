@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Handler;
+namespace Serega170584\CleanArchitecture\Handler;
 
 interface HandlerInterface
 {

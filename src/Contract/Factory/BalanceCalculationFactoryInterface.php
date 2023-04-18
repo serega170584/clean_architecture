@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Contract\Factory;
+namespace Serega170584\CleanArchitecture\Contract\Factory;
 
-use Contract\Type\TransactionType;
-use Contract\BalanceCalculation\BalanceCalculationInterface;
+use Serega170584\CleanArchitecture\Contract\Type\TransactionType;
+use Serega170584\CleanArchitecture\Contract\BalanceCalculation\BalanceCalculationInterface;
 
 interface BalanceCalculationFactoryInterface
 {

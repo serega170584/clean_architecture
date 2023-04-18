@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace Domain\BalanceCalculation;
+namespace Serega170584\CleanArchitecture\Domain\BalanceCalculation;
 
-use Contract\BalanceCalculation\BalanceCalculationInterface;
-use Contract\Model\Account;
+use Serega170584\CleanArchitecture\Contract\BalanceCalculation\BalanceCalculationInterface;
+use Serega170584\CleanArchitecture\Contract\Model\Account;
 
 class IncreaseBalanceCalculation implements BalanceCalculationInterface
 {

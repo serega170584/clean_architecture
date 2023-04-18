@@ -3,19 +3,19 @@ declare(strict_types=1);
 
 namespace Handler;
 
-use Contract\Exception\EmptyTransferAccountException as ContractEmptyTransferAccountException;
-use Contract\Exception\NegativeBalanceException as ContractNegativeBalanceException;
-use Contract\Exception\TransactionTypeNotFoundException;
-use Contract\Model\Account;
-use Contract\Type\TransactionType;
-use Contract\UseCase\TransactionInterface;
-use Database\Manager\UnitOfWork;
-use Domain\Validator\TransactionValidator;
-use Handler\Exception\AccountNotFoundException;
-use Handler\Exception\EmptyTransferAccountException;
-use Handler\Exception\NegativeBalanceException;
-use Repository\AccountRepository;
-use Repository\TransactionRepository;
+use Serega170584\CleanArchitecture\Contract\Exception\EmptyTransferAccountException as ContractEmptyTransferAccountException;
+use Serega170584\CleanArchitecture\Contract\Exception\NegativeBalanceException as ContractNegativeBalanceException;
+use Serega170584\CleanArchitecture\Contract\Exception\TransactionTypeNotFoundException;
+use Serega170584\CleanArchitecture\Contract\Model\Account;
+use Serega170584\CleanArchitecture\Contract\Type\TransactionType;
+use Serega170584\CleanArchitecture\Contract\UseCase\TransactionInterface;
+use Serega170584\CleanArchitecture\Database\Manager\UnitOfWork;
+use Serega170584\CleanArchitecture\Domain\Validator\TransactionValidator;
+use Serega170584\CleanArchitecture\Handler\Exception\AccountNotFoundException;
+use Serega170584\CleanArchitecture\Handler\Exception\EmptyTransferAccountException;
+use Serega170584\CleanArchitecture\Handler\Exception\NegativeBalanceException;
+use Serega170584\CleanArchitecture\Repository\AccountRepository;
+use Serega170584\CleanArchitecture\Repository\TransactionRepository;
 use Source\SourceInterface;
 
 class Handler implements HandlerInterface

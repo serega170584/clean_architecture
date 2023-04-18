@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Domain\UseCase;
+namespace Serega170584\CleanArchitecture\Domain\UseCase;
 
-use Contract\Factory\BalanceCalculationFactoryInterface;
-use Contract\Model\Account;
-use Contract\Type\TransactionType;
-use Contract\UseCase\TransactionInterface;
-use Contract\Model\Transaction as TransactionModel;
+use Serega170584\CleanArchitecture\Contract\Factory\BalanceCalculationFactoryInterface;
+use Serega170584\CleanArchitecture\Contract\Model\Account;
+use Serega170584\CleanArchitecture\Contract\Type\TransactionType;
+use Serega170584\CleanArchitecture\Contract\UseCase\TransactionInterface;
+use Serega170584\CleanArchitecture\Contract\Model\Transaction as TransactionModel;
 
 final class Transaction implements TransactionInterface
 {

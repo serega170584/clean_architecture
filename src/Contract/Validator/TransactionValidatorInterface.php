@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Contract\Validator;
+namespace Serega170584\CleanArchitecture\Contract\Validator;
 
 use Contract\Model\Account;
 use Contract\Type\TransactionType;

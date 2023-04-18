@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Domain\BalanceCalculation;
+namespace Serega170584\CleanArchitecture\Domain\BalanceCalculation;
 
-use Contract\BalanceCalculation\BalanceCalculationInterface;
-use Contract\Exception\NegativeBalanceException;
-use Contract\Model\Account;
+use Serega170584\CleanArchitecture\Contract\BalanceCalculation\BalanceCalculationInterface;
+use Serega170584\CleanArchitecture\Contract\Exception\NegativeBalanceException;
+use Serega170584\CleanArchitecture\Contract\Model\Account;
 
 class DecreaseBalanceCalculation implements BalanceCalculationInterface
 {

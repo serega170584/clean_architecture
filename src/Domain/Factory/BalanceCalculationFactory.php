@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Domain\Factory;
+namespace Serega170584\CleanArchitecture\Domain\Factory;
 
-use Contract\BalanceCalculation\BalanceCalculationInterface;
-use Contract\Factory\BalanceCalculationFactoryInterface;
-use Contract\Type\TransactionType;
-use Domain\BalanceCalculation\DecreaseBalanceCalculation;
-use Domain\BalanceCalculation\IncreaseBalanceCalculation;
+use Serega170584\CleanArchitecture\Contract\BalanceCalculation\BalanceCalculationInterface;
+use Serega170584\CleanArchitecture\Contract\Factory\BalanceCalculationFactoryInterface;
+use Serega170584\CleanArchitecture\Contract\Type\TransactionType;
+use Serega170584\CleanArchitecture\Domain\BalanceCalculation\DecreaseBalanceCalculation;
+use Serega170584\CleanArchitecture\Domain\BalanceCalculation\IncreaseBalanceCalculation;
 
 class BalanceCalculationFactory  implements BalanceCalculationFactoryInterface
 {

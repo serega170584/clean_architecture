@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Handler\Exception;
+namespace Serega170584\CleanArchitecture\Handler\Exception;
 
 use Throwable;
 

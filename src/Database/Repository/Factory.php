@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Repository;
+namespace Serega170584\CleanArchitecture\Repository;
 
-use Source\SourceInterface;
+use Serega170584\CleanArchitecture\Source\SourceInterface;
 
 final class Factory
 {

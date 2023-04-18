@@ -1,13 +1,13 @@
 <?php
 declare(strict_types=1);
 
-namespace Source;
+namespace Serega170584\CleanArchitecture\Source;
 
-use Source\Exception\FieldNotFoundException;
-use Source\Exception\FileldIsBlockedForUpdate;
-use Source\Exception\SortTypeNotFoundException;
-use Source\Exception\SourceNotFoundException;
-use Source\FieldAdapter\SerializerInterface;
+use Serega170584\CleanArchitecture\Source\Exception\FieldNotFoundException;
+use Serega170584\CleanArchitecture\Source\Exception\FileldIsBlockedForUpdate;
+use Serega170584\CleanArchitecture\Source\Exception\SortTypeNotFoundException;
+use Serega170584\CleanArchitecture\Source\Exception\SourceNotFoundException;
+use Serega170584\CleanArchitecture\Source\FieldAdapter\SerializerInterface;
 
 class Source implements SourceInterface
 {

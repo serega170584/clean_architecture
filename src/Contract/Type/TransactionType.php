@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Contract\Type;
+namespace Serega170584\CleanArchitecture\Contract\Type;
 
 enum TransactionType: string
 {

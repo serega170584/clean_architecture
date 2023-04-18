@@ -1,11 +1,11 @@
 <?php
 declare(strict_types=1);
 
-namespace Repository;
+namespace Serega170584\CleanArchitecture\Repository;
 
-use Contract\Model\Account;
-use Source\SourceInterface;
-use Contract\Model\Transaction;
+use Serega170584\CleanArchitecture\Contract\Model\Account;
+use Serega170584\CleanArchitecture\Source\SourceInterface;
+use Serega170584\CleanArchitecture\Contract\Model\Transaction;
 
 final class TransactionRepository implements RepositoryInterface
 {
