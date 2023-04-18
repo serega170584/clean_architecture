@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serega170584\CleanArchitecture\Source;
@@ -114,7 +115,7 @@ class Source implements SourceInterface
         }
 
         $isDiff = false;
-        if (null !== $sortValue ) {
+        if (null !== $sortValue) {
             $isDiff = !in_array($sortValue, self::SORT);
         }
 
@@ -144,7 +145,8 @@ class Source implements SourceInterface
                     $model->method($fieldValue);
                     continue;
                 }
-                $model->method($fieldSerializer->unSerialize($fieldValue));;
+                $model->method($fieldSerializer->unSerialize($fieldValue));
+                ;
             }
             $result[$model->getId()] = $model;
         }

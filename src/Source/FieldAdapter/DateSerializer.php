@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Serega170584\CleanArchitecture\Source\FieldAdapter;
@@ -7,7 +8,7 @@ use Serega170584\CleanArchitecture\Source\Exception\InvalidDateField;
 use Serega170584\CleanArchitecture\Source\Exception\InvalidModelException;
 use Serega170584\CleanArchitecture\Source\Exception\ModelFieldNotFoundException;
 
-class DateSerializer implements  SerializerInterface
+class DateSerializer implements SerializerInterface
 {
     private string $modelName;
 
