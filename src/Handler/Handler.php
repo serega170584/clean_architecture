@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Handler;
+namespace Serega170584\CleanArchitecture\Handler;
 
 use Serega170584\CleanArchitecture\Contract\Exception\EmptyTransferAccountException as ContractEmptyTransferAccountException;
 use Serega170584\CleanArchitecture\Contract\Exception\NegativeBalanceException as ContractNegativeBalanceException;
@@ -16,7 +16,7 @@ use Serega170584\CleanArchitecture\Handler\Exception\EmptyTransferAccountExcepti
 use Serega170584\CleanArchitecture\Handler\Exception\NegativeBalanceException;
 use Serega170584\CleanArchitecture\Repository\AccountRepository;
 use Serega170584\CleanArchitecture\Repository\TransactionRepository;
-use Source\SourceInterface;
+use Serega170584\CleanArchitecture\Source\SourceInterface;
 
 class Handler implements HandlerInterface
 {

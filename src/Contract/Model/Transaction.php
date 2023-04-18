@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Serega170584\CleanArchitecture\Contract\Model;
 
-use Contract\Type\TransactionType;
+use Serega170584\CleanArchitecture\Contract\Type\TransactionType;
 use DateTimeImmutable;
 
 class Transaction
