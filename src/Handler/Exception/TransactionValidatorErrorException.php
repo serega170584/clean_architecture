@@ -6,11 +6,11 @@ namespace Serega170584\CleanArchitecture\Handler\Exception;
 
 use Throwable;
 
-class NegativeBalanceException extends \Exception
+class TransactionValidatorErrorException extends \Exception
 {
     public function __construct(string $message = "", int $code = 0, ?Throwable $previous = null)
     {
-        $message = sprintf("%s - $message", 'negative account balance');
+        $message = sprintf("%s - $message", 'transaction validator error');
         parent::__construct($message, $code, $previous);
     }
 }
