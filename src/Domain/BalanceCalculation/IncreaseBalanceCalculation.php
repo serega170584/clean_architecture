@@ -9,10 +9,10 @@ use Serega170584\CleanArchitecture\Contract\Model\Account;
 
 class IncreaseBalanceCalculation implements BalanceCalculationInterface
 {
-    public function calculateBalance(Account $account, int $count): void
+    public function calculateBalance(Account $account, int $amount): void
     {
         $balance = $account->getBalance();
-        $balance += $count;
+        $balance += $amount;
         $account->setBalance($balance);
     }
 }

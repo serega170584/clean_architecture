@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Serega170584\CleanArchitecture\Database\Repository;
 
 use Serega170584\CleanArchitecture\Contract\Model\Account;
+use Serega170584\CleanArchitecture\Database\Exception\QueryException;
 use Serega170584\CleanArchitecture\Source\SourceInterface;
 use Serega170584\CleanArchitecture\Contract\Model\Transaction;
 
@@ -40,9 +41,16 @@ final class TransactionRepository implements RepositoryInterface
         return $transaction;
     }
 
+    /**
+     * @throws QueryException
+     */
     public function getAll(array $sort = []): array
     {
-        $data = $this->source->query(Transaction::class, [], $sort);
+        try {
+            $data = $this->source->query(Transaction::class, [], $sort);
+        } catch (\Exception $e) {
+            throw new QueryException($e->getMessage());
+        }
         $this->data = $data;
         return $data;
     }

@@ -95,14 +95,4 @@ class Handler
 
         $unitOfWork->commit();
     }
-
-    public function getTransactionsSortedByComment(): array
-    {
-        return $this->transactionRepository->getAll(['comment' => 'ASC']);
-    }
-
-    public function getTransactionsSortedByDueDate(): array
-    {
-        return $this->transactionRepository->getAll(['dueDate' => 'ASC']);
-    }
 }
