@@ -16,7 +16,7 @@ $accountRepository = $container->getAccountRepository();
 $transactionRepository = $container->getTransactionRepository();
 $transaction = $container->getTransactionUseCase();
 $transactionValidator = $container->getTransactionValidator();
-$handler = new \Serega170584\CleanArchitecture\Handler\Handler($accountRepository, $transactionRepository, $transaction, $source, $transactionValidator, $unitOfWork);
+$handler = new \Serega170584\CleanArchitecture\Handler\Handler($accountRepository, $transactionRepository, $transaction, $transactionValidator, $unitOfWork);
 
 var_dump($handler->getAllAccounts());
 
