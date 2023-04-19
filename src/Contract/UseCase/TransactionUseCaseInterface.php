@@ -9,7 +9,7 @@ use Serega170584\CleanArchitecture\Contract\Model\Account;
 use Serega170584\CleanArchitecture\Contract\Model\Transaction;
 use Serega170584\CleanArchitecture\Contract\Type\TransactionType;
 
-interface TransactionInterface
+interface TransactionUseCaseInterface
 {
     /**
      * @throws NegativeBalanceException

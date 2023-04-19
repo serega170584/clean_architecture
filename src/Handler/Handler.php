@@ -9,21 +9,22 @@ use Serega170584\CleanArchitecture\Contract\Exception\NegativeBalanceException a
 use Serega170584\CleanArchitecture\Contract\Exception\TransactionTypeNotFoundException;
 use Serega170584\CleanArchitecture\Contract\Model\Account;
 use Serega170584\CleanArchitecture\Contract\Type\TransactionType;
-use Serega170584\CleanArchitecture\Contract\UseCase\TransactionInterface;
+use Serega170584\CleanArchitecture\Contract\UseCase\TransactionUseCaseInterface;
+use Serega170584\CleanArchitecture\Contract\Validator\TransactionValidatorInterface;
 use Serega170584\CleanArchitecture\Database\Manager\UnitOfWork;
 use Serega170584\CleanArchitecture\Domain\Validator\TransactionValidator;
 use Serega170584\CleanArchitecture\Handler\Exception\AccountNotFoundException;
 use Serega170584\CleanArchitecture\Handler\Exception\EmptyTransferAccountException;
 use Serega170584\CleanArchitecture\Handler\Exception\NegativeBalanceException;
-use Serega170584\CleanArchitecture\Repository\AccountRepository;
-use Serega170584\CleanArchitecture\Repository\TransactionRepository;
+use Serega170584\CleanArchitecture\Database\Repository\AccountRepository;
+use Serega170584\CleanArchitecture\Database\Repository\TransactionRepository;
 use Serega170584\CleanArchitecture\Source\SourceInterface;
 
-class Handler implements HandlerInterface
+class Handler
 {
     private AccountRepository $accountRepository;
 
-    private TransactionInterface $transaction;
+    private TransactionUseCaseInterface $transaction;
 
     private SourceInterface $source;
 
@@ -31,7 +32,7 @@ class Handler implements HandlerInterface
 
     private TransactionRepository $transactionRepository;
 
-    public function __construct(AccountRepository $accountRepository, TransactionRepository $transactionRepository, TransactionInterface $transaction, SourceInterface $source, TransactionValidator $transactionValidator)
+    public function __construct(AccountRepository $accountRepository, TransactionRepository $transactionRepository, TransactionUseCaseInterface $transaction, SourceInterface $source, TransactionValidatorInterface $transactionValidator)
     {
         $this->accountRepository = $accountRepository;
         $this->transactionRepository = $transactionRepository;
