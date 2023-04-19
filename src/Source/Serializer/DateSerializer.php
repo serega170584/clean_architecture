@@ -17,10 +17,7 @@ class DateSerializer implements SerializerInterface
             throw new InvalidDateField(sprintf('%s', $unSerializedValue));
         }
 
-        /**
-         * @var \DateTimeImmutable $date
-         */
-        return $date->format('Y-m-d');
+        return $unSerializedValue->format('Y-m-d');
     }
 
     public function unSerialize(string $serializedValue): \DateTimeImmutable
