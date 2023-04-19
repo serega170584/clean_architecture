@@ -85,6 +85,7 @@ class Source implements SourceInterface
      * @throws SourceNotFoundException
      * @throws FieldNotFoundException
      * @throws SortTypeNotFoundException
+     * @throws \Exception
      */
     public function query(string $sourceName, array $filter = [], array $sort = []): array
     {
