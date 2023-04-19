@@ -17,51 +17,63 @@ use Serega170584\CleanArchitecture\Source\SourceInterface;
 
 class Container
 {
-    private SourceInterface $source;
+    private ?SourceInterface $source = null;
 
-    private AccountRepository $accountRepository;
+    private ?AccountRepository $accountRepository = null;
 
-    private TransactionRepository $transactionRepository;
+    private ?TransactionRepository $transactionRepository = null;
 
-    private BalanceCalculationFactoryInterface $balanceCalculationFactory;
+    private ?BalanceCalculationFactoryInterface $balanceCalculationFactory = null;
 
-    private TransactionUseCase $transactionUseCase;
+    private ?TransactionUseCase $transactionUseCase = null;
 
-    private TransactionValidator $transactionValidator;
+    private ?TransactionValidator $transactionValidator = null;
 
     public function getSource(): SourceInterface
     {
-        $this->source = new Source();
+        if (null === $this->source) {
+            $this->source = new Source();
+        }
         return $this->source;
     }
 
     public function getAccountRepository(): AccountRepository
     {
-        $this->accountRepository = new AccountRepository($this->source);
+        if (null === $this->accountRepository) {
+            $this->accountRepository = new AccountRepository($this->getSource());
+        }
         return $this->accountRepository;
     }
 
     public function getTransactionRepository(): TransactionRepository
     {
-        $this->transactionRepository = new TransactionRepository($this->source, $this->accountRepository);
+        if (null === $this->transactionRepository) {
+            $this->transactionRepository = new TransactionRepository($this->getSource(), $this->getAccountRepository());
+        }
         return $this->transactionRepository;
     }
 
     public function getBalanceCalculationFactory(): BalanceCalculationFactoryInterface
     {
-        $this->balanceCalculationFactory = new BalanceCalculationFactory();
+        if (null === $this->balanceCalculationFactory) {
+            $this->balanceCalculationFactory = new BalanceCalculationFactory();
+        }
         return $this->balanceCalculationFactory;
     }
 
     public function getTransactionUseCase(): TransactionUseCaseInterface
     {
-        $this->transactionUseCase = new TransactionUseCase($this->balanceCalculationFactory);
+        if (null === $this->transactionUseCase) {
+            $this->transactionUseCase = new TransactionUseCase($this->getBalanceCalculationFactory());
+        }
         return $this->transactionUseCase;
     }
 
     public function getTransactionValidator(): TransactionValidatorInterface
     {
-        $this->transactionValidator = new TransactionValidator();
+        if (null === $this->transactionValidator) {
+            $this->transactionValidator = new TransactionValidator();
+        }
         return $this->transactionValidator;
     }
 }

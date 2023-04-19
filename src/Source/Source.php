@@ -17,12 +17,12 @@ class Source implements SourceInterface
     private const SORT = [self::SORT_ASC, self::SORT_DESC];
 
     private $isBlockedForUpdate = [
-        'Contract\Model\Account' => [],
-        'Contract\Model\Transaction' => []
+        'Serega170584\CleanArchitecture\Contract\Model\Account' => [],
+        'Serega170584\CleanArchitecture\Contract\Model\Transaction' => []
     ];
 
     private array $data = [
-        'Contract\Model\Account' => [
+        'Serega170584\CleanArchitecture\Contract\Model\Account' => [
             1 => [
                 'id' => 1,
                 'name' => 'Test',
@@ -34,7 +34,7 @@ class Source implements SourceInterface
                 'balance' => 6000
             ]
         ],
-        'Contract\Model\Transaction' => [
+        'Serega170584\CleanArchitecture\Contract\Model\Transaction' => [
             1 => [
                 'id' => 1,
                 'type' => 'D',
@@ -58,19 +58,19 @@ class Source implements SourceInterface
             ],
         ],
         'schema' => [
-            'Contract\Model\Account' => ['id', 'name', 'balance'],
-            'Contract\Model\Transaction' => ['id', 'type', 'comment', 'amount', 'dueDate']
+            'Serega170584\CleanArchitecture\Contract\Model\Account' => ['id', 'name', 'balance'],
+            'Serega170584\CleanArchitecture\Contract\Model\Transaction' => ['id', 'type', 'comment', 'amount', 'dueDate']
         ],
         'next_id' => [
-            'Contract\Model\Account' => 3,
-            'Contract\Model\Transaction' => 4
+            'Serega170584\CleanArchitecture\Contract\Model\Account' => 3,
+            'Serega170584\CleanArchitecture\Contract\Model\Transaction' => 4
         ]
     ];
 
     private array $transactionData = [
         'next_id' => [
-            'Contract\Model\Account' => 3,
-            'Contract\Model\Transaction' => 4
+            'Serega170584\CleanArchitecture\Contract\Model\Account' => 3,
+            'Serega170584\CleanArchitecture\Contract\Model\Transaction' => 4
         ]
     ];
 
@@ -133,7 +133,7 @@ class Source implements SourceInterface
     private function transformData(string $sourceName, array $sourceData): array
     {
         $result = [];
-        foreach ($sourceData as $id => $row) {
+        foreach ($sourceData as $row) {
             $model = new $sourceName();
             foreach ($row as $fieldKey => $fieldValue) {
                 $method = 'set' . ucfirst($fieldKey);
@@ -142,11 +142,10 @@ class Source implements SourceInterface
                  */
                 $fieldSerializer = $this->transformData[$sourceName][$sourceData] ?? null;
                 if (null === $fieldSerializer) {
-                    $model->method($fieldValue);
+                    $model->$method($fieldValue);
                     continue;
                 }
                 $model->method($fieldSerializer->unSerialize($fieldValue));
-                ;
             }
             $result[$model->getId()] = $model;
         }
