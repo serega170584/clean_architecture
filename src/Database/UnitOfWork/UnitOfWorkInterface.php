@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Serega170584\CleanArchitecture\Database\Manager;
+namespace Serega170584\CleanArchitecture\Database\UnitOfWork;
 
 interface UnitOfWorkInterface
 {

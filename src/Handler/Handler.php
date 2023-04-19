@@ -11,7 +11,7 @@ use Serega170584\CleanArchitecture\Contract\Model\Account;
 use Serega170584\CleanArchitecture\Contract\Type\TransactionType;
 use Serega170584\CleanArchitecture\Contract\UseCase\TransactionUseCaseInterface;
 use Serega170584\CleanArchitecture\Contract\Validator\TransactionValidatorInterface;
-use Serega170584\CleanArchitecture\Database\Manager\UnitOfWork;
+use Serega170584\CleanArchitecture\Database\UnitOfWork\UnitOfWorkInterface;
 use Serega170584\CleanArchitecture\Domain\Validator\TransactionValidator;
 use Serega170584\CleanArchitecture\Handler\Exception\AccountNotFoundException;
 use Serega170584\CleanArchitecture\Handler\Exception\EmptyTransferAccountException;
@@ -32,13 +32,16 @@ class Handler
 
     private TransactionRepository $transactionRepository;
 
-    public function __construct(AccountRepository $accountRepository, TransactionRepository $transactionRepository, TransactionUseCaseInterface $transaction, SourceInterface $source, TransactionValidatorInterface $transactionValidator)
+    private UnitOfWorkInterface $unitOfWork;
+
+    public function __construct(AccountRepository $accountRepository, TransactionRepository $transactionRepository, TransactionUseCaseInterface $transaction, SourceInterface $source, TransactionValidatorInterface $transactionValidator, UnitOfWorkInterface $unitOfWork)
     {
         $this->accountRepository = $accountRepository;
         $this->transactionRepository = $transactionRepository;
         $this->transaction = $transaction;
         $this->source = $source;
         $this->transactionValidator = $transactionValidator;
+        $this->unitOfWork = $unitOfWork;
     }
 
     public function getAllAccounts(): array
@@ -59,7 +62,7 @@ class Handler
      */
     public function operateTransaction(int $accountId, int $count, string $type, string $comment = '', ?int $toAccountId = null): void
     {
-        $unitOfWork = new UnitOfWork($this->source);
+        $unitOfWork = $this->unitOfWork;
         $unitOfWork->start();
 
         $account = $this->accountRepository->getOne($accountId, true);
