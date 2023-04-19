@@ -2,11 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Serega170584\CleanArchitecture\Source\FieldAdapter;
+namespace Serega170584\CleanArchitecture\Source\Serializer;
 
 interface SerializerInterface
 {
-    public function serialize(object $model): string;
+    /**
+     * @throws \Exception
+     */
+    public function serialize($unSerializedValue): string;
 
-    public function unSerialize(string $value): object;
+    /**
+     * @throws \Exception
+     */
+    public function unSerialize(string $serializedValue): object;
 }

@@ -6,9 +6,10 @@ namespace Serega170584\CleanArchitecture\Source;
 
 use Serega170584\CleanArchitecture\Source\Exception\FieldNotFoundException;
 use Serega170584\CleanArchitecture\Source\Exception\FileldIsBlockedForUpdate;
+use Serega170584\CleanArchitecture\Source\Exception\SchemaNotFoundException;
 use Serega170584\CleanArchitecture\Source\Exception\SortTypeNotFoundException;
 use Serega170584\CleanArchitecture\Source\Exception\SourceNotFoundException;
-use Serega170584\CleanArchitecture\Source\FieldAdapter\SerializerInterface;
+use Serega170584\CleanArchitecture\Source\Serializer\SerializerInterface;
 
 class Source implements SourceInterface
 {
@@ -130,6 +131,9 @@ class Source implements SourceInterface
         return $this->transformData($sourceName, $result);
     }
 
+    /**
+     * @throws \Exception
+     */
     private function transformData(string $sourceName, array $sourceData): array
     {
         $result = [];
@@ -140,12 +144,12 @@ class Source implements SourceInterface
                 /**
                  * @var SerializerInterface $fieldSerializer
                  */
-                $fieldSerializer = $this->transformData[$sourceName][$sourceData] ?? null;
+                $fieldSerializer = $this->serializerFieldData[$sourceName][$fieldKey] ?? null;
                 if (null === $fieldSerializer) {
                     $model->$method($fieldValue);
                     continue;
                 }
-                $model->method($fieldSerializer->unSerialize($fieldValue));
+                $model->$method($fieldSerializer->unSerialize($fieldValue));
             }
             $result[$model->getId()] = $model;
         }
@@ -264,8 +268,22 @@ class Source implements SourceInterface
         $this->transactionData[$class][$id] = $data;
     }
 
-    public function addFieldSerializer(string $modelName, string $field, SerializerInterface $serializer): void
+    /**
+     * @throws SchemaNotFoundException
+     * @throws FieldNotFoundException
+     */
+    public function addFieldSerializer(string $schemaName, string $field, SerializerInterface $serializer): void
     {
-        $this->serializerFieldData[$modelName][$field] = $serializer;
+        $isSchemaExisted = $this->data['schema'][$schemaName] ?? false;
+        if (!$isSchemaExisted) {
+            throw new SchemaNotFoundException(sprintf('%s', $schemaName));
+        }
+
+        $isFieldExisted = in_array($field, $this->data['schema'][$schemaName]);
+        if (!$isFieldExisted) {
+            throw new FieldNotFoundException(sprintf('schema: %s, field: %s ', $schemaName, $field));
+        }
+
+        $this->serializerFieldData[$schemaName][$field] = $serializer;
     }
 }

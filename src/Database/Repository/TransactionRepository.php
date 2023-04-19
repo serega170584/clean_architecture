@@ -42,7 +42,7 @@ final class TransactionRepository implements RepositoryInterface
 
     public function getAll(array $sort = []): array
     {
-        $data = $this->source->query(Account::class, [], $sort);
+        $data = $this->source->query(Transaction::class, [], $sort);
         $this->data = $data;
         return $data;
     }

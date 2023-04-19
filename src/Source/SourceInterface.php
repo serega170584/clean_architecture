@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Serega170584\CleanArchitecture\Source;
 
-use Serega170584\CleanArchitecture\Source\FieldAdapter\SerializerInterface;
+use Serega170584\CleanArchitecture\Source\Serializer\SerializerInterface;
 
 interface SourceInterface
 {
@@ -18,5 +18,5 @@ interface SourceInterface
 
     public function save(object $model): void;
 
-    public function addFieldSerializer(string $modelName, string $field, SerializerInterface $serializer): void;
+    public function addFieldSerializer(string $schemaName, string $field, SerializerInterface $serializer): void;
 }
