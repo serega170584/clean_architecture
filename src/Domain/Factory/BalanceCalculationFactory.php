@@ -19,8 +19,8 @@ class BalanceCalculationFactory implements BalanceCalculationFactoryInterface
     public function create(TransactionType $transactionType): BalanceCalculationInterface
     {
         $algorithmClassName = match ($transactionType) {
-            TransactionType::TRANSFER, TransactionType::WITHDRAW => IncreaseBalanceCalculation::class,
-            TransactionType::DEPOSIT => DecreaseBalanceCalculation::class
+            TransactionType::TRANSFER, TransactionType::WITHDRAW => DecreaseBalanceCalculation::class,
+            TransactionType::DEPOSIT => IncreaseBalanceCalculation::class
         };
 
         if (null === $algorithmClassName) {

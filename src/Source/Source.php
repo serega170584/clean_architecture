@@ -214,8 +214,11 @@ class Source implements SourceInterface
             }
         }
 
-        $this->isBlockedForUpdate = [];
-        $this->transactionData = [];
+        $this->isBlockedForUpdate = [
+            'Serega170584\CleanArchitecture\Contract\Model\Account' => [],
+            'Serega170584\CleanArchitecture\Contract\Model\Transaction' => []
+        ];
+        $this->transactionData['next_id'] = $this->data['next_id'];
     }
 
     /**

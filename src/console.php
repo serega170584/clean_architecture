@@ -18,11 +18,11 @@ $transaction = $container->getTransactionUseCase();
 $transactionValidator = $container->getTransactionValidator();
 $handler = new \Serega170584\CleanArchitecture\Handler\Handler($accountRepository, $transactionRepository, $transaction, $transactionValidator, $unitOfWork);
 
-var_dump($handler->getAllAccounts());
-
-$account = $accountRepository->getOne(2);
-var_dump($handler->getAccountBalance($account));
-
+//var_dump($handler->getAllAccounts());
+//
+//$account = $accountRepository->getOne(2);
+//var_dump($handler->getAccountBalance($account));
+//
 $handler->operateTransaction(1, 100, 'D', 'W');
 
 $transactions = $transactionRepository->getSortedByDueDate();
@@ -30,3 +30,14 @@ var_dump($transactions);
 
 $transactions = $transactionRepository->getSortedByComment();
 var_dump($transactions);
+
+$account = $accountRepository->getOne(1);
+var_dump($handler->getAccountBalance($account));
+
+$handler->operateTransaction(1, 100, 'T', 'W', 2);
+
+$account = $accountRepository->getOne(1);
+var_dump($handler->getAccountBalance($account));
+
+$account = $accountRepository->getOne(2);
+var_dump($handler->getAccountBalance($account));
