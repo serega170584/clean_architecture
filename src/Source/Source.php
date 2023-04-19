@@ -221,7 +221,7 @@ class Source implements SourceInterface
      * @throws SourceNotFoundException
      * @throws FileldIsBlockedForUpdate
      */
-    public function findById(string $class, int $id, bool $isBlockForUpdate = false): object
+    public function findById(string $class, int $id, bool $isBlockForUpdate = false): array
     {
         $data = $this->data[$class] ?? null;
         if (null === $class) {
@@ -241,6 +241,7 @@ class Source implements SourceInterface
 
     /**
      * @throws SourceNotFoundException
+     * @throws \Exception
      */
     public function save(object $model): void
     {
@@ -262,7 +263,15 @@ class Source implements SourceInterface
         $data = [];
         foreach ($schema as $field) {
             $method = 'get' . ucfirst($field);
-            $data[$field] = $model->$method();
+            $value = $model->$method();
+            /**
+             * @var SerializerInterface $fieldSerializer
+             */
+            $fieldSerializer = $this->serializerFieldData[$class][$field] ?? null;
+            if (null !== $fieldSerializer) {
+                $value = $fieldSerializer->serialize($value);
+            }
+            $data[$field] = $value;
         }
 
         $this->transactionData[$class][$id] = $data;

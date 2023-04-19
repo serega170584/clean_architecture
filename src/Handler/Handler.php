@@ -95,7 +95,10 @@ class Handler
         }
 
         $unitOfWork->save($account);
-        $unitOfWork->save($toAccount);
+
+        if (null !== $toAccount) {
+            $unitOfWork->save($toAccount);
+        }
         $unitOfWork->save($transaction);
 
         $unitOfWork->commit();

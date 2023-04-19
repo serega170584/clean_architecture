@@ -9,7 +9,7 @@ use DateTimeImmutable;
 
 class Transaction
 {
-    private ?int $id;
+    private ?int $id = null;
 
     private TransactionType $type;
 

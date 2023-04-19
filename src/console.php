@@ -23,10 +23,10 @@ var_dump($handler->getAllAccounts());
 $account = $accountRepository->getOne(2);
 var_dump($handler->getAccountBalance($account));
 
-$transactions = $transactionRepository->getSortedByComment();
-var_dump($transactions);
+$handler->operateTransaction(1, 100, 'D', 'W');
 
 $transactions = $transactionRepository->getSortedByDueDate();
 var_dump($transactions);
 
-//$handler->operateTransaction(1, 100, 'D', 'test');
+$transactions = $transactionRepository->getSortedByComment();
+var_dump($transactions);

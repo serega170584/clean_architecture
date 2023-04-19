@@ -14,7 +14,7 @@ interface SourceInterface
 
     public function query(string $sourceName, array $filter = [], array $sort = []): array;
 
-    public function findById(string $class, int $id, bool $isBlockForUpdate): object;
+    public function findById(string $class, int $id, bool $isBlockForUpdate): array;
 
     public function save(object $model): void;
 

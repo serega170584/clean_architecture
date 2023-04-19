@@ -6,7 +6,7 @@ namespace Serega170584\CleanArchitecture\Contract\Model;
 
 class Account
 {
-    private ?int $id;
+    private ?int $id = null;
 
     private string $name;
 
